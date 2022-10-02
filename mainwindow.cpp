@@ -9,11 +9,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->stackedWidget->setCurrentIndex(0);
     this->m_colorPicker = new QColorDialog(this);
     connect(this->m_colorPicker, &QColorDialog::colorSelected, this, &MainWindow::setColor);
     setColor(QColor(Qt::black)); // set default color
 
-    m_imgGen = new ImageGenerator(this);
+    m_imgGen = new ImageGenerator(ui->imagePage);
     m_imgGen->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     QLabel *label = new QLabel(this);
     ui->imagePage->layout()->addWidget(m_imgGen);
@@ -31,6 +32,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_btnGenerate_clicked() {
     m_imgGen->setText(ui->textCowsay->toPlainText());
     m_imgGen->setColor(m_textColor);
+    m_imgGen->generateImage();
     ui->stackedWidget->setCurrentIndex(1);
 }
 

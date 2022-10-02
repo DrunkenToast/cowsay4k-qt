@@ -13,6 +13,7 @@ public:
 
 public slots:
     void exportImage();
+    void generateImage();
 
     void setText(QString text);
     void setColor(QColor color);
@@ -22,9 +23,9 @@ protected:
 
 signals:
 private:
-    void drawTextBubble(QPainter *p, QSize imageSize);
+    void drawTextBubble(QPainter *p, QSize imageSize, QPoint mouthPos);
     QLabel *m_imageLabel;
-    QPixmap m_imageResult;
+    QImage m_imageResult;
 
     QString m_text;
     QColor m_color;
