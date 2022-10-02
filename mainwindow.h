@@ -19,9 +19,6 @@ public:
 
 private slots:
     void on_btnGenerate_clicked();
-    void on_btnColorPicker_clicked();
-    void setColor(const QColor &color);
-
     void on_btnBack_clicked();
 
 private:

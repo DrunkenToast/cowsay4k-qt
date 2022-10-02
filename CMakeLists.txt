@@ -22,6 +22,8 @@ set(PROJECT_SOURCES
         imagegenerator.h
         imagegenerator.cpp
         images.qrc
+        colorwidget.h
+        colorwidget.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

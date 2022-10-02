@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="settingsPage">
        <layout class="QFormLayout" name="formLayout">
@@ -33,13 +33,6 @@
          <widget class="QLabel" name="label_2">
           <property name="text">
            <string>Pick a color!! :D</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QPushButton" name="btnColorPicker">
-          <property name="text">
-           <string>Color picker</string>
           </property>
          </widget>
         </item>
@@ -72,6 +65,16 @@
         </item>
         <item row="0" column="1">
          <widget class="QTextEdit" name="textCowsay"/>
+        </item>
+        <item row="1" column="1">
+         <widget class="ColorWidget" name="colorWidget" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -126,6 +129,14 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ColorWidget</class>
+   <extends>QWidget</extends>
+   <header>colorwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
