@@ -51,7 +51,7 @@ RUN make download-cc download-qtbase --jobs=$jobs
     
 # Build
 RUN make cc --jobs=$jobs MXE_TARGETS="x86_64-w64-mingw32.static x86_64-w64-mingw32.shared"
-RUN make qtbase --keep-going --jobs=$jobs MXE_TARGETS="x86_64-w64-mingw32.static x86_64-w64-mingw32.shared"
+RUN make qtbase --jobs=$jobs MXE_TARGETS="x86_64-w64-mingw32.static x86_64-w64-mingw32.shared"
 
 # Clean out junk
 RUN cd /opt/mxe && \
