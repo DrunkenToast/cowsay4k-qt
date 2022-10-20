@@ -20,8 +20,10 @@ public:
 private slots:
     void on_btnGenerate_clicked();
     void on_btnBack_clicked();
+    void setTextField(const QString);
 
 private:
+    QString randomQoute();
     Ui::MainWindow *ui;
     QColorDialog *m_colorPicker;
     ImageGenerator *m_imgGen;

@@ -19,7 +19,7 @@ void ColorWidget::setColor(QColor color)
 {
     if (color == m_color) return;
     m_color = color;
-    emit(colorChanged(m_color));
+    emit colorChanged(m_color);
 }
 
 void ColorWidget::mousePressEvent(QMouseEvent *)

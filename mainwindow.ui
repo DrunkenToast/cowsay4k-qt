@@ -32,14 +32,14 @@
         <item row="1" column="0">
          <widget class="QLabel" name="label_2">
           <property name="text">
-           <string>Pick a color!! :D</string>
+           <string>Pick a beautiful color! :D</string>
           </property>
          </widget>
         </item>
         <item row="2" column="1">
          <widget class="QCheckBox" name="chkboxDarkmode">
           <property name="text">
-           <string>Darkmode??</string>
+           <string>Darkmode</string>
           </property>
          </widget>
         </item>

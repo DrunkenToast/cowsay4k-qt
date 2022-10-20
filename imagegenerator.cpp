@@ -9,9 +9,9 @@
 #include <QRandomGenerator>
 
 #define AMT_IMAGES 3
-const QString ImagePaths[] = {":/assets/img/chillin.jpg", ":/assets/img/blurrycow.jpg",
+const QString ImagePaths[AMT_IMAGES] = {":/assets/img/chillin.jpg", ":/assets/img/blurrycow.jpg",
                              ":/assets/img/sup.jpg"};
-const QPoint MouthPoints[] = {QPoint(2000, 1200), QPoint(700, 1800), QPoint(700,1000)};
+const QPoint MouthPoints[AMT_IMAGES] = {QPoint(2000, 1200), QPoint(700, 1800), QPoint(700,1000)};
 
 ImageGenerator::ImageGenerator(QWidget *parent)
     : QWidget{parent}
@@ -27,7 +27,7 @@ void ImageGenerator::exportImage()
                     .filePath("cowsay4k.png"),
                 "Images (*.png *.jpeg *.jpg)"
         );
-    if (!path.isEmpty()) { // TODO: check if imageResult contains an image
+    if (!path.isEmpty() && !m_imageResult.isNull()) {
         m_imageResult.save(path);
     }
 }
@@ -75,7 +75,6 @@ void ImageGenerator::drawTextBubble(QPainter *p, QSize imageSize, QPoint mouthPo
     p->setPen(pen);
     p->setBrush(Qt::white);
 
-    qDebug() << mouthPos;
     QRectF rect(padding, padding, imageSize.width() - padding*2, p->fontMetrics().height() * (m_text.count('\n')+1));
     QRectF rectText(rect.x() + 5, rect.y(), rect.width() - 10, rect.height());
     const QPointF points[4] = {
@@ -86,5 +85,5 @@ void ImageGenerator::drawTextBubble(QPainter *p, QSize imageSize, QPoint mouthPo
 
     p->drawPolygon(points, 3);
     p->drawRoundedRect(rect, 20, 20);
-    p->drawText(rectText, m_text);
+    p->drawText(rectText, 0, m_text);
 };

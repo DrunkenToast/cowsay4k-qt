@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "imagegenerator.h"
+#include "randomquote.h"
 
 #include <QPalette>
 
@@ -11,6 +12,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
     setWindowTitle("Cowsay4k");
+
+    auto rngQuote = new RandomQuote();
+    rngQuote->newRequest();
+    connect(rngQuote, &RandomQuote::quoteChanged, this, &MainWindow::setTextField);
 
     m_imgGen = new ImageGenerator(ui->imagePage);
     m_imgGen->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -36,4 +41,9 @@ void MainWindow::on_btnGenerate_clicked() {
 void MainWindow::on_btnBack_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::setTextField(const QString text)
+{
+    ui->textCowsay->setText(text);
 }

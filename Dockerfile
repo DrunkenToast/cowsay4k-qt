@@ -46,11 +46,10 @@ WORKDIR /opt/mxe
 ARG jobs=12
 
 # Cache download
-RUN make download-cc download-qtbase --jobs=$jobs 
-# RUN make download --jobs=14
+RUN make download-cmake download-qtbase --jobs=$jobs 
     
 # Build
-RUN make cc --jobs=$jobs MXE_TARGETS="x86_64-w64-mingw32.static x86_64-w64-mingw32.shared"
+RUN make cmake --jobs=$jobs MXE_TARGETS="x86_64-w64-mingw32.static x86_64-w64-mingw32.shared"
 RUN make qtbase --jobs=$jobs MXE_TARGETS="x86_64-w64-mingw32.static x86_64-w64-mingw32.shared"
 
 # Clean out junk
