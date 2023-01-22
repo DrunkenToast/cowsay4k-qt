@@ -19,7 +19,7 @@ void RandomQuote::newRequest()
 {
     QNetworkRequest req;
 
-    req.setUrl(QUrl("http://whatthecommit.com/index.txt"));
+    req.setUrl(QUrl("https://whatthecommit.com/index.txt"));
 
     QNetworkReply *res = manager->get(req);
     connect(res, &QNetworkReply::finished, this, [=]{
